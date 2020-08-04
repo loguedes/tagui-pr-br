@@ -1,0 +1,58 @@
+ # Steps para montar um XPath:
+
+ Vamos seguir quatro steps para guiar nos guiar na criação de XPaths:
+ 1. Escolher o elemento no browser;
+ 2. Encontrar o elemento pelo Dev Tools do Chrome [o famoso f12];
+ 3. Analisar atributos e elementos ligados ou próximos ao elemento;
+ 4. Montar seu Xpath :)
+ Utilize esses steps como guia para criar um novo XPath. 
+
+ # Utilizando o atributo “id”
+ O atributo “id” é sempre a melhor opção para montar XPaths, pois por boa prática, id’s devem ser únicos, o que facilita nossa busca.
+ 1- Você deve escolher o elemento no browser
+ 2- Encontrar o elemento pelo Dev Tools do chrome [f12]
+ 3- Em seguinda você deve analisar atributos e elementos relacionados
+ O elemento escolhido pode apresentar tag, pode ser tipo "button" ou "div" ou "link", nesse caso você deve está atento as informações coletadas no Dev Tools para criar o caminho adequado até o elemento desejado.
+ 4- Montar seu Xpath
+ Digite “//”. Isso significa que você iniciou uma busca a partir de qualquer nível da página web.
+ Adicione a tag do nosso elemento. O Dev Tool retornará todos os elementos com tag. 
+ Agora precisamos especificar melhor a nossa busca. Adicione “[]” (colchetes) e teremos “//input[]”.
+ Adicione “@id” dentro dos colchetes. Temos então “//tag[@id]”. Agora o Dev Tool retornará todos os elementos com a tag que tenham o atributo “id”.
+ Para finalizar, adicione "=(valor do ID do elemento)", após o “@id”. Temos então “//tag[@id=‘valordoID’]”.
+ Assim temos o caminho para encontrar o elemento desejado através do ID no Xpath. Podemos fazer uso de atributos como “class”, “name”, “type” entre outros.
+
+ # Expressões Comuns em Xpath
+ 
+ Expressão | Descrição
+ ----------|-----------
+ / | Seleciona a tag raiz
+ // | Seleciona todos do documento independente de onde eles estejam
+ . | Seleciona a tag atual
+ .. | Seleciona a tag-mãe da tag atual
+ @ | Seleciona atributos	
+ * | expressão coringa, o asterisco retorna qualquer marcador (tag), desde que tenha a condição a seguir
+ [@id="nomeID"] | os colchetes indicam uma condição que retorna apenas as tags com atributo id igual à palavra geral
+ /ul[2] |	Seleciona a segunda tag ul
+ /li[1] |	Dentro dos elementos descritos até então, seleciona a primeira tag li
+ /span[2]|	Dentro dos elementos descritos até então, seleciona a segunda tag span
+
+ # SELECIONANDO TAGS DESCONHECIDAS
+Coringas XPath podem ser usados para selecionar marcadores HTML desconhecidos.
+
+ Coringa |Descrição
+ --------|---------
+ *	|Retorna qualquer marcador
+ @*	|Retorna qualquer atributo
+ node()	|Retorna qualquer elemento de qualquer tipo
+
+ Na tabela abaixo estão listadas expressões de caminho e seus resultados:
+
+ Expressão de caminho |Resultado
+ ---------------------|-----------
+ /div/*	|Seleciona todos os elementos filhos da tag div
+ //*	|Seleciona todas as tags do documento
+ //class[@*] |Seleciona todos os elementos class que possuem pelo menos um atributo de qualquer tipo
+
+
+
+Fonte: Google
